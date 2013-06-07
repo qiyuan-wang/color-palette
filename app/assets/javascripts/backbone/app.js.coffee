@@ -4,6 +4,7 @@
   
   App.addRegions
     mainRegion: "#main-region"
+    footerRegion: "#footer-region"
   
   App.addInitializer ->
     App.module("MainApp").start()
