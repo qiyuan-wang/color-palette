@@ -1,7 +1,7 @@
-@Color.module "MainApp", (MainApp, App, Backbone, Marionette, $, _) ->
+@Color.module "EditorApp", (EditorApp, App, Backbone, Marionette, $, _) ->
   
-  class MainApp.MainView extends Marionette.ItemView
-    template: "main/templates/main"
+  class EditorApp.EditorView extends Marionette.ItemView
+    template: "editor/templates/editor"
     
     onRender: ->
       @el.addEventListener "touchstart", (event) ->

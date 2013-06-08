@@ -7,7 +7,7 @@
     footerRegion: "#footer-region"
   
   App.addInitializer ->
-    App.module("MainApp").start()
+    App.module("EditorApp").start()
     App.module("FooterApp").start()
   
   App.on "initialize:after", ->
