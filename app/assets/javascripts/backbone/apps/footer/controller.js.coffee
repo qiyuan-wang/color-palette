@@ -10,3 +10,5 @@
       
     getFooterView: ->
       new FooterApp.FooterView
+    
+    @
