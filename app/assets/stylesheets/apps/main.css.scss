@@ -1,7 +1,11 @@
 // for iPhones less than 5
 @media screen and (device-aspect-ratio: 2/3) {
   #main {
-    min-height: 100px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
     background-color: red;
   }
 }
