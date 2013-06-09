@@ -10,10 +10,10 @@
         event.preventDefault()
       hammertime = Hammer @el
       hammertime.on "swipeup", =>
-        @ui.editor.css('bottom', '50px')
-        console.log $('#footer')
+        @ui.editor.css('top', '-50px')
+        console.log @ui.editor.css(['width', 'height'])
         # App.request "show:footer"
       hammertime.on "swipedown", =>
-         @ui.editor.css('bottom', '0px')
+         @ui.editor.css('top', '0px')
       
       
