@@ -4,11 +4,9 @@
   
   App.addRegions
     mainRegion: "#main-region"
-    footerRegion: "#footer-region"
   
   App.addInitializer ->
     App.module("EditorApp").start()
-    App.module("FooterApp").start()
   
   App.on "initialize:after", ->
     if Backbone.history
