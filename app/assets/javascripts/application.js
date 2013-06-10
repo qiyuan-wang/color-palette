@@ -13,6 +13,7 @@
 //= require jquery
 //= require lib/underscore
 //= require lib/hammer
+//= require lib/color-thief
 //= require lib/backbone
 //= require lib/marionette
 //= require_tree ./backbone/config
