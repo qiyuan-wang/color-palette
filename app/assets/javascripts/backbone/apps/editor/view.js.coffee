@@ -12,12 +12,12 @@
       @el.addEventListener 'touchmove', (event) ->
         event.preventDefault()
       hammertime = Hammer @el
-      hammertime.on "swipeup", =>
+      hammertime.on "swipeup", （event) =>
         @ui.editor.css('top', '-10%')
-      hammertime.on "swipedown", =>
+        
+      hammertime.on "swipedown", (event) =>
          @ui.editor.css('top', '0px')
       @ui.imageField.on "change", @handleImageSelect
-      
       
     handleImageSelect: (event) =>
       if event.target.files.length == 1 && event.target.files[0].type.indexOf("image/") == 0
@@ -29,6 +29,8 @@
     
     handleReaderLoad: (event) =>
       @ui.targetImage.attr('src', event.target.result)
+      console.log @ui.targetImage[0]
+      console.log createPalette(@ui.targetImage[0], 2)
     
     
       

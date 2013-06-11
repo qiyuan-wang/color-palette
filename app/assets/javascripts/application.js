@@ -13,6 +13,7 @@
 //= require jquery
 //= require lib/underscore
 //= require lib/hammer
+//= require lib/quantize
 //= require lib/color-thief
 //= require lib/backbone
 //= require lib/marionette
