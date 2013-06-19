@@ -4,8 +4,8 @@
     template: "color/templates/template"
     id: "wrapper"
     ui:
-      button: "#select-image"
-      editor: "#editor"
+      button: "#select-button"
+      selector: "#selector"
       imageField: "#image-field"
       targetImage: "#target-image"
       imagePalette: "#image-palette"
@@ -26,14 +26,12 @@
       # return to editor 
       @$el.on "swiperight", "#image-palette", (event) ->
         $("#wrapper").css("transform","translateX(0)")
-        $("#target-image").removeAttr('src')
-        console.log $("#target-image")[0]
+        $("#target-image").fadeOut().remove()
         
       @ui.button.on "click", (event) ->
         $("#image-field").trigger("click")
          
       @ui.imageField.on "change", @handleImageSelect
-      
       
     handleImageSelect: (event) ->
       if event.target.files.length == 1 && event.target.files[0].type.indexOf("image/") == 0
@@ -41,8 +39,12 @@
         reader = new FileReader
         reader.readAsDataURL file
         reader.onload = (event) ->
-          $("#target-image").attr('src', event.target.result)
+          image = document.createElement('image')
+          image.id = "target-image"
+          image.src = event.target.result
           $("#wrapper").css("transform","translateX(-50%)")
+          $("#image-palette").append(image).hide().fadeIn()
+          
         
           
     
