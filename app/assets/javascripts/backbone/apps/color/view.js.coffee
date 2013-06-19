@@ -42,8 +42,20 @@
           image = document.createElement('image')
           image.id = "target-image"
           image.src = event.target.result
-          $("#wrapper").css("transform","translateX(-50%)")
-          $("#image-palette").append(image).hide().fadeIn()
+          $(image).on "load", ->
+            colors = createPalette(image, 5)
+            _.each colors, (element, index) ->
+              $("#color-" + index).css('background-color', 'rgba(' + element.toString() + ',1)' )
+              # element.backgroundColor = 'rgba(' + colors[index] + ", 1)"
+              
+            $("#wrapper").css("transform","translateX(-50%)")
+          $("#image-palette").prepend(image)
+          
+
+    displayColor: (image) ->
+      console.log image
+      
+          
           
         
           
