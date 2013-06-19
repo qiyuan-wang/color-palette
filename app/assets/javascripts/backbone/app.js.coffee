@@ -6,7 +6,7 @@
     mainRegion: "#main-region"
   
   App.addInitializer ->
-    App.module("EditorApp").start()
+    App.module("ColorApp").start()
   
   App.on "initialize:after", ->
     if Backbone.history

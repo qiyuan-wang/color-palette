@@ -1,7 +1,7 @@
-@Color.module "EditorApp", (EditorApp, App, Backbone, Marionette, $, _ ) ->
+@Color.module "ColorApp", (ColorApp, App, Backbone, Marionette, $, _ ) ->
   
-  class EditorApp.EditorView extends Marionette.ItemView
-    template: "editor/templates/editor"
+  class ColorApp.EditorView extends Marionette.ItemView
+    template: "color/templates/template"
     id: "wrapper"
     ui:
       button: "#select-image"

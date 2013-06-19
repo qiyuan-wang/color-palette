@@ -1,6 +1,6 @@
-@Color.module "EditorApp", (EditorApp, App, Backbone, Marionette, $, _) ->
+@Color.module "ColorApp", (ColorApp, App, Backbone, Marionette, $, _) ->
   
-  class EditorApp.Controller extends Marionette.Controller
+  class ColorApp.Controller extends Marionette.Controller
     initialize: (options) ->
       @region = options.region
       
@@ -9,4 +9,4 @@
       @region.show(view)
       
     getEditorView: ->
-      new EditorApp.EditorView
+      new ColorApp.EditorView
