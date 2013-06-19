@@ -4,4 +4,4 @@
   ColorApp.on "start", ->
     controller = new ColorApp.Controller
                           region: App.mainRegion
-    controller.showEditor()
+    controller.showColor()

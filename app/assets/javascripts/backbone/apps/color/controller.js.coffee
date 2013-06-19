@@ -4,9 +4,16 @@
     initialize: (options) ->
       @region = options.region
       
-    showEditor: ->
-      view = @getEditorView()
+    showColor: ->
+      view = @getColorView()
       @region.show(view)
       
-    getEditorView: ->
-      new ColorApp.EditorView
+    getColorView: ->
+      new ColorApp.ColorView
+      
+    showRequirement: ->
+      view = @getRequirementView()
+      @region.show(view)
+      
+    getRequirementView: ->
+      new ColorApp.RequirementView

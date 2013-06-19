@@ -1,14 +1,11 @@
 @Color.module "ColorApp", (ColorApp, App, Backbone, Marionette, $, _ ) ->
   
-  class ColorApp.EditorView extends Marionette.ItemView
+  class ColorApp.ColorView extends Marionette.ItemView
     template: "color/templates/template"
     id: "wrapper"
     ui:
-      button: "#select-button"
-      selector: "#selector"
       imageField: "#image-field"
-      targetImage: "#target-image"
-      imagePalette: "#image-palette"
+      button: "#select-button"
     
     onRender: ->
       @el.addEventListener 'touchmove', (event) ->
@@ -50,10 +47,7 @@
               
             $("#wrapper").css("transform","translateX(-50%)")
           $("#image-palette").prepend(image)
-          
-
-    displayColor: (image) ->
-      console.log image
+      
       
           
           
