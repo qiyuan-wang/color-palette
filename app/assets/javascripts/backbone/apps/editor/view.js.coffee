@@ -1,36 +1,50 @@
-@Color.module "EditorApp", (EditorApp, App, Backbone, Marionette, $, _) ->
+@Color.module "EditorApp", (EditorApp, App, Backbone, Marionette, $, _ ) ->
   
   class EditorApp.EditorView extends Marionette.ItemView
     template: "editor/templates/editor"
     id: "wrapper"
     ui:
+      button: "#select-image"
       editor: "#editor"
-      imageField: "#imageField"
+      imageField: "#image-field"
       targetImage: "#target-image"
+      imagePalette: "#image-palette"
     
     onRender: ->
       @el.addEventListener 'touchmove', (event) ->
         event.preventDefault()
-      hammertime = Hammer @el
-      hammertime.on "swipeup", （event) =>
-        @ui.editor.css('top', '-10%')
+      
+      # add touch action
+      Hammer @el # init a hammer object
+      
+      # show and hide footer through swipe-up and swipe-down
+      @$el.on "swipeup", (event) ->
+        $(@).css('top', '-10%')  
+      @$el.on "swipedown", (event) ->
+         $(@).css('top', '0px')
+      
+      # return to editor 
+      @$el.on "swiperight", "#image-palette", (event) ->
+        $("#wrapper").css("transform","translateX(0)")
+        $("#target-image").removeAttr('src')
+        console.log $("#target-image")[0]
         
-      hammertime.on "swipedown", (event) =>
-         @ui.editor.css('top', '0px')
+      @ui.button.on "click", (event) ->
+        $("#image-field").trigger("click")
+         
       @ui.imageField.on "change", @handleImageSelect
       
-    handleImageSelect: (event) =>
+      
+    handleImageSelect: (event) ->
       if event.target.files.length == 1 && event.target.files[0].type.indexOf("image/") == 0
         file = event.target.files[0]
         reader = new FileReader
         reader.readAsDataURL file
-        reader.onload = @handleReaderLoad
+        reader.onload = (event) ->
+          $("#target-image").attr('src', event.target.result)
+          $("#wrapper").css("transform","translateX(-50%)")
         
-    
-    handleReaderLoad: (event) =>
-      @ui.targetImage.attr('src', event.target.result)
-      console.log @ui.targetImage[0]
-      console.log createPalette(@ui.targetImage[0], 2)
+          
     
     
       

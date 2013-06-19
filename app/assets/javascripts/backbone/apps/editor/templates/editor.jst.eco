@@ -1,5 +1,8 @@
 <div id="editor">
-  <input type="file" capture="camera" accept="image/*" id="imageField">
+  <button id="select-image">选择图片</button>
+  <input type="file" capture="camera" accept="image/*" id="image-field">
+</div>
+<div id="image-palette">
   <img id="target-image">
   <div id="colors-palette">
     <div id="color-1" class="palette"></div>
@@ -8,7 +11,4 @@
     <div id="color-4" class="palette"></div>
     <div id="color-5" class="palette"></div>
   </div>
-</div>
-<div id="footer">
-  <p> Fun with Backbone + Marionette. By <a href="http://weibo.com/zisasign" target="_blank">Qiyuan</a>.</p>
 </div>
