@@ -1,7 +1,7 @@
 @Color.module "ColorApp", (ColorApp, App, Backbone, Marionette, $, _ ) ->
   
   class ColorApp.ColorView extends Marionette.ItemView
-    template: "color/templates/template"
+    template: "color/templates/color"
     id: "wrapper"
     ui:
       imageField: "#image-field"
@@ -48,7 +48,9 @@
             $("#wrapper").css("transform","translateX(-50%)")
           $("#image-palette").prepend(image)
       
-      
+  class ColorApp.RequirementView extends Marionette.ItemView
+    template: "color/templates/require"
+    id: "wrapper"
           
           
         
