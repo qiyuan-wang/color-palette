@@ -50,8 +50,12 @@
       
   class ColorApp.RequirementView extends Marionette.ItemView
     template: "color/templates/require"
-    id: "wrapper"
-          
+    id: "preview"
+    
+    onRender: ->
+      @el.addEventListener 'touchmove', (event) ->
+        event.preventDefault()
+    
           
         
           

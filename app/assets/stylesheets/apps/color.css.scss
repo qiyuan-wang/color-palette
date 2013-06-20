@@ -1,15 +1,62 @@
 @import "compass/reset";
 
 body {
-  font-family: Helvetica;
+  font-family: Helvetica, Hiragino Sans GB, Arial;
   background-color: #28302c;
 }
-html, body, #main-region, #wrapper {
+html, body, #main-region, #wrapper, #preview {
   height: 100%;
 }
 
 // for iPhones less than 5
 @media screen and (device-aspect-ratio: 2/3) and (orientation:portrait) {
+  #preview {
+    position : relative;
+    width: 100%;
+    background-color: #ecf0f1;
+    box-sizing: border-box;
+    border-width: 0 0 3px 0;
+    text-align: center;
+    z-index: 2;
+    -webkit-border-image: -webkit-linear-gradient(left, red, orange, yellow, lime, #123EAC, #7109AB) 100% 1;
+  }
+  
+  #logo {
+    position : relative;
+    padding-top: 30%;
+    
+    > img {
+      max-width: 80px;
+    }
+  }
+  #intro {
+    position: relative;
+    background: -webkit-linear-gradient(left, red, orange, yellow, lime, #123EAC, #7109AB);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    
+    h1 {
+      line-height: 2em;
+      font-size: 1.5em;
+    }
+    
+    p {
+      line-height: 1em;
+      font-size: 1em;
+    }
+  }
+  #tip {
+    position: relative;
+    margin-top: 16%;
+    line-height: 1.5em;
+    font-size: 0.8em;
+    color: gray;
+    
+    h2 {
+      color: #2d75b1;
+      font-weight: bold;
+    }
+  }
   #wrapper {
     position: relative;
     width: 200%;

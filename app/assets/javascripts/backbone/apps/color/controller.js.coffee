@@ -5,8 +5,12 @@
       @region = options.region
       
     showColor: ->
-      view = @getColorView()
-      @region.show(view)
+      if window.navigator.standalone
+        view = @getColorView()
+        @region.show(view)
+      else
+        view = @getRequirementView()
+        @region.show(view)
       
     getColorView: ->
       new ColorApp.ColorView
