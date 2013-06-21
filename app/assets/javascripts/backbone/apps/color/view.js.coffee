@@ -78,8 +78,8 @@
           
           
   
-  class ColorApp.RequirementView extends Marionette.ItemView
-    template: "color/templates/require"
+  class ColorApp.InstallView extends Marionette.ItemView
+    template: "color/templates/install"
     id: "preview"
     class: "frame"
     
@@ -87,6 +87,10 @@
       @$el.addClass('frame')
       @el.addEventListener 'touchmove', (event) ->
         event.preventDefault()
+        
+  class ColorApp.RequireView extends Marionette.ItemView
+    template: "color/templates/require"
+    id: "preview"
     
           
         
