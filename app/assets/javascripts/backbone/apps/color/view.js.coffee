@@ -23,9 +23,9 @@
       
       # return to editor 
       @$el.on "swiperight", "#image-palette", (event) ->
+        $("#target-image").remove()
+        $("#inner").removeAttr('style')
         $("#wrapper").css("transform","translateX(0)")
-        $("#target-image").fadeOut().remove()
-        # $("#image-palette").hide()
         
       @ui.button.on "click", (event) ->
         $("#image-field").trigger("click")
@@ -45,11 +45,18 @@
             colors = createPalette(image, 5)
             _.each colors, (element, index) ->
               $("#color-" + index).css('background-color', 'rgba(' + element.toString() + ',1)' )
-              
             $("#wrapper").css("transform","translateX(-50%)")
-            # $("#image-palette").show()
-          $("#image-palette").prepend(image)
-      
+          $("#inner").prepend(image)
+          realHeight = $("#inner").height()
+          console.log realHeight
+          style = 
+                  position : 'absolute'
+                  height : realHeight
+                  top    : 0
+                  bottom  : 0
+                  margin : 'auto'
+          $("#inner").css(style)
+  
   class ColorApp.RequirementView extends Marionette.ItemView
     template: "color/templates/require"
     id: "preview"

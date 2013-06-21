@@ -7,11 +7,13 @@
   <input type="file" capture="camera" accept="image/*" id="image-field">
 </div>
 <div id="image-palette">
-  <div id="colors-palette">
-    <div id="color-0" class="palette"></div>
-    <div id="color-1" class="palette"></div>
-    <div id="color-2" class="palette"></div>
-    <div id="color-3" class="palette"></div>
-    <div id="color-4" class="palette"></div>
+  <div id="inner">
+    <div id="colors-palette">
+      <div id="color-0" class="palette"></div>
+      <div id="color-1" class="palette"></div>
+      <div id="color-2" class="palette"></div>
+      <div id="color-3" class="palette"></div>
+      <div id="color-4" class="palette"></div>
+    </div>
   </div>
 </div>
