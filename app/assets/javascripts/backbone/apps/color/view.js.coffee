@@ -23,10 +23,13 @@
       
       # return to selector
       @$el.on "swiperight", "#image-palette", (event) ->
-        # delete element
-        $("#target-image").remove()
-        # clear the style added by jquery
-        $("#inner").removeAttr('style')
+        # wait the translation finish
+        setTimeout (-> 
+          # delete element
+          $("#target-image").remove()
+          # clear the style added by jquery
+          $("#inner").removeAttr('style')), 400
+          
         # slide right
         $("#wrapper").css("transform","translateX(0)")
         
