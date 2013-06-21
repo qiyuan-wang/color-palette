@@ -57,21 +57,23 @@
             _.each colors, (element, index) ->
               $("#color-" + index).css('background-color', 'rgba(' + element.toString() + ',1)' )
             
+            # make div#inner center vertically according to image height
+            realHeight = $("#inner").height()
+            style = 
+                    position : 'absolute'
+                    height : realHeight
+                    top    : 0
+                    bottom  : 0
+                    margin : 'auto'
+            $("#inner").css(style)
+            
             # slide left
             $("#wrapper").css("transform","translateX(-50%)")
           
           # insert image to div#inner
           $("#inner").prepend(image)
           
-          # make div#inner center vertically according to image height
-          realHeight = $("#inner").height()
-          style = 
-                  position : 'absolute'
-                  height : realHeight
-                  top    : 0
-                  bottom  : 0
-                  margin : 'auto'
-          $("#inner").css(style)
+          
   
   class ColorApp.RequirementView extends Marionette.ItemView
     template: "color/templates/require"
