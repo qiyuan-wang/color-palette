@@ -84,7 +84,6 @@
     class: "frame"
     
     onRender: ->
-      console.log @el
       @$el.addClass('frame')
       @el.addEventListener 'touchmove', (event) ->
         event.preventDefault()
