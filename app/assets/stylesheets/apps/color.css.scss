@@ -14,7 +14,7 @@ html, body, #main-region, #wrapper, #preview {
 // generalized part
   .frame {
     position : relative;
-    background-color: #ecf0f1;
+    background-color: white;
     box-sizing: border-box;
     border-width: 0 0 3px 0;
     text-align: center;
@@ -57,7 +57,7 @@ html, body, #main-region, #wrapper, #preview {
     }
   }
   #intro {
-    background: -webkit-linear-gradient(left, red, orange, yellow, lime, #123EAC, #7109AB);
+    background: -webkit-linear-gradient(left, #7109AB, red, orange, yellow, lime, #123EAC);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
     
