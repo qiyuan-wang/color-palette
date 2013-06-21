@@ -21,10 +21,13 @@
       @$el.on "swipedown", (event) ->
          $(@).css('top', '0px')
       
-      # return to editor 
+      # return to selector
       @$el.on "swiperight", "#image-palette", (event) ->
+        # delete element
         $("#target-image").remove()
+        # clear the style added by jquery
         $("#inner").removeAttr('style')
+        # slide right
         $("#wrapper").css("transform","translateX(0)")
         
       @ui.button.on "click", (event) ->
@@ -34,21 +37,34 @@
       
     handleImageSelect: (event) ->
       if event.target.files.length == 1 && event.target.files[0].type.indexOf("image/") == 0
+        
+        # read image
         file = event.target.files[0]
         reader = new FileReader
         reader.readAsDataURL file
+        
+        # when image is ready
         reader.onload = (event) ->
+          # create image element and set its attributes
           image = document.createElement('image')
           image.id = "target-image"
           image.src = event.target.result
+          
+          # when element load the image
           $(image).on "load", ->
+            # retrieval colors of image
             colors = createPalette(image, 5)
             _.each colors, (element, index) ->
               $("#color-" + index).css('background-color', 'rgba(' + element.toString() + ',1)' )
+            
+            # slide left
             $("#wrapper").css("transform","translateX(-50%)")
+          
+          # insert image to div#inner
           $("#inner").prepend(image)
+          
+          # make div#inner center vertically according to image height
           realHeight = $("#inner").height()
-          console.log realHeight
           style = 
                   position : 'absolute'
                   height : realHeight
