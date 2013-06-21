@@ -8,6 +8,7 @@
       button: "#select-button"
     
     onRender: ->
+      @$el.addClass('frame')
       @el.addEventListener 'touchmove', (event) ->
         event.preventDefault()
       
@@ -24,6 +25,7 @@
       @$el.on "swiperight", "#image-palette", (event) ->
         $("#wrapper").css("transform","translateX(0)")
         $("#target-image").fadeOut().remove()
+        # $("#image-palette").hide()
         
       @ui.button.on "click", (event) ->
         $("#image-field").trigger("click")
@@ -43,16 +45,19 @@
             colors = createPalette(image, 5)
             _.each colors, (element, index) ->
               $("#color-" + index).css('background-color', 'rgba(' + element.toString() + ',1)' )
-              # element.backgroundColor = 'rgba(' + colors[index] + ", 1)"
               
             $("#wrapper").css("transform","translateX(-50%)")
+            # $("#image-palette").show()
           $("#image-palette").prepend(image)
       
   class ColorApp.RequirementView extends Marionette.ItemView
     template: "color/templates/require"
     id: "preview"
+    class: "frame"
     
     onRender: ->
+      console.log @el
+      @$el.addClass('frame')
       @el.addEventListener 'touchmove', (event) ->
         event.preventDefault()
     

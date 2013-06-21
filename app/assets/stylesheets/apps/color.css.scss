@@ -8,11 +8,12 @@ html, body, #main-region, #wrapper, #preview {
   height: 100%;
 }
 
-// for iPhones less than 5
+// for iPhone4s
 @media screen and (device-aspect-ratio: 2/3) and (orientation:portrait) {
-  #preview {
+
+// generalized part
+  .frame {
     position : relative;
-    width: 100%;
     background-color: #ecf0f1;
     box-sizing: border-box;
     border-width: 0 0 3px 0;
@@ -21,8 +22,34 @@ html, body, #main-region, #wrapper, #preview {
     -webkit-border-image: -webkit-linear-gradient(left, red, orange, yellow, lime, #123EAC, #7109AB) 100% 1;
   }
   
+  #footer {
+    position: absolute;
+    bottom: 0px;
+    margin: 0 auto;
+    height: 10%;
+    width: 100%;
+    z-index: 1;
+    
+    p {
+      font-size: 0.8em;
+      margin: 15px 0;
+      text-align: center;
+      color: #a2c48d;
+      -webkit-text-shadow:1px 1px 2px #cc9f52;
+      
+      a {
+        text-decoration: none;
+        color: #e6c985;
+      }
+    }
+  }
+  
+// install part --------------------------------------------
+  #preview {
+    width: 100%;
+  }
+  
   #logo {
-    position : relative;
     padding-top: 30%;
     
     > img {
@@ -30,7 +57,6 @@ html, body, #main-region, #wrapper, #preview {
     }
   }
   #intro {
-    position: relative;
     background: -webkit-linear-gradient(left, red, orange, yellow, lime, #123EAC, #7109AB);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
@@ -46,7 +72,6 @@ html, body, #main-region, #wrapper, #preview {
     }
   }
   #tip {
-    position: relative;
     margin-top: 16%;
     line-height: 1.5em;
     font-size: 0.8em;
@@ -57,19 +82,14 @@ html, body, #main-region, #wrapper, #preview {
       font-weight: bold;
     }
   }
+  
+// main part ----------------------------------------------------------
   #wrapper {
-    position: relative;
     width: 200%;
     -webkit-transition: top 0.3s ease, -webkit-transform 0.3s ease;
-    z-index: 2;
-    background-color: #ecf0f1;
-    box-sizing: border-box;
-    border-width: 0 0 3px 0;
-    -webkit-border-image: -webkit-linear-gradient(left, red, orange, yellow, lime, #123EAC, #7109AB) 100% 1;
   }
   
   #selector {
-    position: relative;
     top: 0px;
     left: 0px;
     width: 50%;
@@ -78,7 +98,6 @@ html, body, #main-region, #wrapper, #preview {
   }
   
   #select-button {
-    position: relative;
     width: 100px;
     height: 100px;
     margin-top: 180px;
@@ -101,7 +120,6 @@ html, body, #main-region, #wrapper, #preview {
   }
   
   #image-palette {
-    position: relative;
     top: 0px;
     left: 0px;
     width: 50%;
@@ -110,53 +128,29 @@ html, body, #main-region, #wrapper, #preview {
   }
   
   #target-image {
-    position: relative;
     max-width: 90%;
-    height: auto;
+    max-height: 90%;
+//    height: auto;
     margin: 5%;
-//    -webkit-filter: grayscale(40%);
   }
   
   #colors-palette {
-    position: absolute;
-    bottom: 5%;
+    position: relative;
+    bottom: 10%;
     right: 0;
     width: 100%;
-    padding: 0 25px;
+    padding: 0 20px;
     box-sizing: border-box;
   }
   
   .palette {
     width: 50px;
     height: 50px;
-    background-color: black;
+    border: 1px solid gray;
     float: left;
     margin-right: 5px;
     &:last-child {
       margin-right: 0px;
-    }
-//    -webkit-border-radius: 25px;
-  }
-  
-  #footer {
-    position: absolute;
-    bottom: 0px;
-    margin: 0 auto;
-    height: 10%;
-    width: 100%;
-    z-index: 1;
-    
-    p {
-      font-size: 0.8em;
-      margin: 15px 0;
-      text-align: center;
-      color: #a2c48d;
-      -webkit-text-shadow:1px 1px 2px #cc9f52;
-      
-      a {
-        text-decoration: none;
-        color: #e6c985;
-      }
     }
   }
 }

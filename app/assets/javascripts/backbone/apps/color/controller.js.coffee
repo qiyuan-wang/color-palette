@@ -3,6 +3,7 @@
   class ColorApp.Controller extends Marionette.Controller
     initialize: (options) ->
       @region = options.region
+      App.height = $(window).height()
       
     showColor: ->
       if window.navigator.standalone
