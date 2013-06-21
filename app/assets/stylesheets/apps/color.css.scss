@@ -9,7 +9,7 @@ html, body, #main-region, #wrapper, #preview {
 }
 
 // for iPhone4s
-@media screen and (device-aspect-ratio: 2/3) and (orientation:portrait) {
+@media screen and (max-device-width: 480px) and (orientation:portrait) {
 
 // generalized part
   .frame {
