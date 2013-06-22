@@ -79,18 +79,11 @@
   class ColorApp.InstallView extends Marionette.ItemView
     template: "color/templates/install"
     id: "preview"
-    
-    onRender: ->
-      @el.addEventListener 'touchmove', (event) ->
-        event.preventDefault()
+
         
   class ColorApp.RequireView extends Marionette.ItemView
     template: "color/templates/require"
     id: "preview"
-    
-    onRender: ->
-      @el.addEventListener 'touchmove', (event) ->
-        event.preventDefault()
           
         
           
