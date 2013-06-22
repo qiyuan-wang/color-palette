@@ -1,3 +1,5 @@
+ENV["RAILS_ASSET_ID"] = "" # disable timestamps at end of asset files for offline browsing
+
 Color::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
