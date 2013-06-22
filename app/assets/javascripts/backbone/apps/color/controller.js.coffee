@@ -6,18 +6,28 @@
        
     showColor: ->
       ua = window.navigator.userAgent
-      # open with mobile Safari on iPhone
-      if ua.indexOf('iPhone') >= 0 && ua.indexOf('Safari') >= 0 && ua.indexOf('Android') == -1
-        if window.navigator.standalone
-          view = @getColorView()
-          @region.show(view)
-        else
+      # open with mobile Safari(webview or web clip) on iPhone
+      if ua.indexOf('iPhone') >= 0 && ua.indexOf('Android') == -1 && ua.indexOf('CriOS') == -1
+        # safari
+        if ua.indexOf('Safari') >= 0
           view = @getInstallView()
-          @region.show(view)
+        # web clip (already installed)
+        else if window.navigator.standalone
+          view = @getColorView()
+        # webviews
+        else
+          view = @getRequireView()
       # others(iPad Safari, Android, PC etc.)
+      else
+        view = @getRequireView()
+      
+      @region.show(view)
       
     getColorView: ->
       new ColorApp.ColorView
       
     getInstallView: ->
       new ColorApp.InstallView
+      
+    getRequireView: ->
+      new ColorApp.RequireView

@@ -12,9 +12,9 @@ html, body, #main-region, #wrapper, #preview {
 @media screen and (max-device-width: 480px) and (orientation:portrait) {
 
 // generalized part
-  .frame {
+  #preview, #wrapper {
     position : relative;
-    background-color: white;
+    background-color: #ecf0f1;
     box-sizing: border-box;
     border-width: 0 0 3px 0;
     text-align: center;
@@ -44,7 +44,7 @@ html, body, #main-region, #wrapper, #preview {
     }
   }
   
-// install part --------------------------------------------
+// require and install part --------------------------------------------
   #preview {
     width: 100%;
   }

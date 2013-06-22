@@ -8,7 +8,6 @@
       button: "#select-button"
     
     onRender: ->
-      @$el.addClass('frame')
       @el.addEventListener 'touchmove', (event) ->
         event.preventDefault()
       
@@ -81,10 +80,8 @@
   class ColorApp.InstallView extends Marionette.ItemView
     template: "color/templates/install"
     id: "preview"
-    class: "frame"
     
     onRender: ->
-      @$el.addClass('frame')
       @el.addEventListener 'touchmove', (event) ->
         event.preventDefault()
         
@@ -92,6 +89,9 @@
     template: "color/templates/require"
     id: "preview"
     
+    onRender: ->
+      @el.addEventListener 'touchmove', (event) ->
+        event.preventDefault()
           
         
           
