@@ -74,9 +74,8 @@
           
           # insert image to div#inner
           $("#inner").prepend(image)
-          
-          
-  
+
+
   class ColorApp.InstallView extends Marionette.ItemView
     template: "color/templates/install"
     id: "preview"

@@ -1,20 +1,19 @@
 @import "compass/reset";
-
 body {
   font-family: Helvetica, Hiragino Sans GB, Arial;
-  background-color: #28302c;
 }
-html, body, #main-region, #wrapper, #preview {
+html, body {
   height: 100%;
 }
 
 // for iPhone4s
 @media screen and (max-device-width: 480px) and (orientation:portrait) {
-
 // generalized part
+  #main-region, #wrapper, #preview {
+    height: 100%;
+  }
   #preview, #wrapper {
     position : relative;
-    background-color: #ecf0f1;
     box-sizing: border-box;
     border-width: 0 0 3px 0;
     text-align: center;
@@ -29,6 +28,7 @@ html, body, #main-region, #wrapper, #preview {
     height: 10%;
     width: 100%;
     z-index: 1;
+    background-color: #28302c;
     
     p {
       font-size: 0.8em;
@@ -47,6 +47,7 @@ html, body, #main-region, #wrapper, #preview {
 // require and install part --------------------------------------------
   #preview {
     width: 100%;
+    background-color: white;
   }
   
   #logo {
@@ -85,6 +86,7 @@ html, body, #main-region, #wrapper, #preview {
   
 // main part ----------------------------------------------------------
   #wrapper {
+    background-color: #ecf0f1;
     width: 200%;
     -webkit-transition: top 0.3s ease, -webkit-transform 0.3s ease;
   }
@@ -98,10 +100,12 @@ html, body, #main-region, #wrapper, #preview {
   }
   
   #select-button {
+    position: absolute;
     width: 100px;
     height: 100px;
-    margin-top: 180px;
-    margin-left: 110px;
+    top: 0;
+    bottom: 0;
+    margin: auto 110px;
     background-color: #1abc9c;
     color: #ecf0f1;
     -webkit-border-radius: 50px;
@@ -148,12 +152,172 @@ html, body, #main-region, #wrapper, #preview {
       margin-right: 0px;
     }
   }
+  
+// smooth the notice deletion
+  #notice {
+    display: none;
+  }
 }
 
-// for iPhone 5
-@media screen and (device-aspect-ratio: 40/71) {
-  #editor {
-    min-height: 100px;
-    background-color: blue;
+@media screen and (max-device-width: 480px) and (orientation:landscape) {
+  #selector, #image-palette, #footer {
+    display: none;
   }
+  
+  #notice {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: 20px;
+    width: 350px;
+    color: gray;
+    text-align: center;
+    
+    h1 {
+      font-size: 1.5em;
+      line-height: 2em;
+    }
+    p {
+      font-size: 1em;
+      line-height: 2em;
+    }
+  }
+  
+  #main-region {
+    position : relative;
+    box-sizing: border-box;
+    text-align: center;
+    z-index: 2;
+    height: 100%;
+    border-width: 0 0 4px 0;
+    -webkit-border-image: -webkit-linear-gradient(left, red, orange, yellow, lime, #123EAC, #7109AB) 100% 1;}
+    
+  #preview {
+    position: absolute;
+    height: 150px;
+    width: 350px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+  }
+  
+  #logo > img {
+    width: 80px;
+  }
+
+  #intro {
+    background: -webkit-linear-gradient(left, #7109AB, red, orange, yellow, lime, #123EAC);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    
+    h1 {
+      line-height: 1.5em;
+      font-size: 1.2em;
+    }
+    
+    p {
+      line-height: 1em;
+      font-size: 0.8em;
+    }
+  }
+  #tip {
+    margin-top: 5%;
+    line-height: 1.3em;
+    font-size: 0.8em;
+    color: gray;
+    
+    h2 {
+      color: #2d75b1;
+      font-weight: bold;
+    }
+    
+    svg {
+      display: none;
+    }
+  }
+}
+// for Tablet, PC etc.
+@media screen and (min-device-width: 480px) {
+  body {
+    background-color: white;
+    box-sizing: border-box; 
+  }
+  
+  #main-region {
+    height: 100%;
+  }
+  #main-region {
+    position : relative;
+    text-align: center;
+    z-index: 2;
+    height: 92%;
+    border-width: 0 0 3px 0;
+    -webkit-border-image: -webkit-linear-gradient(left, red, orange, yellow, lime, #123EAC, #7109AB) 100% 1;}
+    
+  #preview {
+    position: absolute;
+    height: 300px;
+    width: 350px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+  }
+
+  #intro {
+    background: -webkit-linear-gradient(left, #7109AB, red, orange, yellow, lime, #123EAC);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    
+    h1 {
+      line-height: 2em;
+      font-size: 3em;
+    }
+    
+    p {
+      line-height: 1em;
+      font-size: 1.5em;
+    }
+  }
+  #tip {
+    margin-top: 10%;
+    line-height: 2em;
+    font-size: 1em;
+    color: gray;
+    
+    h2 {
+      color: #2d75b1;
+      font-weight: bold;
+    }
+  }
+  #footer {
+    position: absolute;
+    bottom: 0px;
+    margin: 0 auto;
+    height: 8%;
+    width: 100%;
+    z-index: 1;
+    background-color: #28302c;
+  
+    p {
+      display: block;
+      font-size: 1em;
+      margin: 1.5% 0;
+      text-align: center;
+      color: #a2c48d;
+      -webkit-text-shadow:1px 1px 2px #cc9f52;
+    
+      a {
+        text-decoration: none;
+        color: #e6c985;
+      }
+    }
+  }
+  
 }
