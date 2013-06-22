@@ -2,7 +2,6 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
-ENV["RAILS_ASSET_ID"] = "" # disable timestamps at end of asset files for offline browsing
 
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
